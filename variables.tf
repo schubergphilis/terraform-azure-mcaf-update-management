@@ -98,54 +98,30 @@ A map of objects containing the configuration for the maintenance configurations
     `kb_numbers_to_exclude` - (Optional) List of KB numbers to be excluded from patching.
     `kb_numbers_to_include` - (Optional) List of KB numbers to be included for patching.
 - `assignments` - (Optional) A map of objects containing the configuration for the maintenance assignments to be created.
-
 ```
 maintenance_configurations = {
-"weekly2000" = {
-  name     = "weekly-maintenance-2000"
-
-  window {
-    start_date_time = "2025-01-01 20:00"
-    time_zone       = "W. Europe Standard Time"
-    recur_every     = "1Weeks"
-  }
-
-  assignments = {
-    "patchgroup1" = {
-      locations      = ["germanywestcentral","westeurope"]
-      os_types        = ["Windows"]
-      tag_values      = ["patchgroup1"]
-    },
-    "patchgroup2" = {
-      locations      = ["germanywestcentral","westeurope"]
-      os_types        = ["Windows","Linux"]
-      tag_values      = ["patchgroup2"]
+  "weekly1900" = {
+    name = "weekly-maintenance-1900"
+    window = {
+      start_date_time = "2025-01-01 19:00"
+      time_zone       = "W. Europe Standard Time"
+      recur_every     = "1Days"
     }
-    "patchgroup2" = {
-      locations      = ["germanywestcentral","westeurope"]
-      os_types        = ["Linux"]
-      tag_values      = ["patchgroup2"]
+    install_patches = {
+      reboot = "IfRequired"
+      windows = {
+        classifications_to_include = ["Definition"]
+      }
     }
-  }
-},
-"weekly2200" = {
-  name     = "weekly-maintenance-2200"
-
-  window {
-    start_date_time = "2025-01-01 22:00"
-    time_zone       = "W. Europe Standard Time"
-    recur_every     = "1Weeks"
-  }
-
-  assignments = {
-    "patchgroup1" = {
-      tag_values      = ["patchgroup1"]
-    },
-    "patchgroup2" = {
-      tag_values      = ["patchgroup2"]
-    },
-    "patchgroup3" = {
-      tag_values      = ["patchgroup3"]
+    assignments = {
+      "patchgroup1" = {
+        name            = "patchgroup1-1900"
+        locations       = ["germanywestcentral", "westeurope"]
+        os_types        = ["Windows"]
+        resource_groups = ["resource-group-name"]
+        tag_name        = "patchgroup"
+        tag_values      = ["patchgroup1"]
+      }
     }
   }
 }
