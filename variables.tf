@@ -1,11 +1,11 @@
 variable "resource_group_name" {
   description = "The name of the resource group where the maintenance configuration will be created."
-  type = string
+  type        = string
 }
 
 variable "location" {
   description = "The location where the maintenance configuration will be created."
-  type = string
+  type        = string
 }
 
 variable "maintenance_configurations" {
@@ -32,14 +32,14 @@ variable "maintenance_configurations" {
       }), {})
     }), {}),
     assignments = optional(map(object({
-      name             = optional(string)
-      locations        = optional(list(string))
-      os_types         = optional(list(string))
-      resource_groups  = optional(list(string))
-      resource_types   = optional(list(string))
-      tag_filter       = optional(string)
-      tag_name         = optional(string)
-      tag_values       = optional(list(string))
+      name            = optional(string)
+      locations       = optional(list(string))
+      os_types        = optional(list(string))
+      resource_groups = optional(list(string))
+      resource_types  = optional(list(string))
+      tag_filter      = optional(string)
+      tag_name        = optional(string)
+      tag_values      = optional(list(string))
     })), {})
   }))
   default = {
@@ -156,6 +156,6 @@ DESCRIPTION
 
 variable "tags" {
   description = "A mapping of tags to assign to the resources."
-  type = map(string)
-  default = {}
+  type        = map(string)
+  default     = {}
 }

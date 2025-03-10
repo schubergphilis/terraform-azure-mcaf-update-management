@@ -29,7 +29,7 @@ resource "azurerm_maintenance_configuration" "this" {
     reboot = each.value.install_patches.reboot
 
     linux {
-      classifications_to_include = each.value.install_patches.linux.classifications_to_include
+      classifications_to_include    = each.value.install_patches.linux.classifications_to_include
       package_names_mask_to_include = each.value.install_patches.linux.package_names_mask_to_include
       package_names_mask_to_exclude = each.value.install_patches.linux.package_names_mask_to_exclude
     }
@@ -48,7 +48,7 @@ resource "azurerm_maintenance_configuration" "this" {
     })
   )
 
-    lifecycle {
+  lifecycle {
     ignore_changes = [
       window["start_date_time"]
     ]

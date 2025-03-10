@@ -6,7 +6,7 @@ module "updates" {
   source = "../../"
 
   resource_group_name = "resource-group-name"
-  location = "germanywestcentral"
+  location            = "germanywestcentral"
 
   tags = {
     environment = "production"

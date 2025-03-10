@@ -1,6 +1,6 @@
 locals {
-  current_date = formatdate("YYYY-MM-DD", timestamp())
-  custom_time  = "22:00"
+  current_date    = formatdate("YYYY-MM-DD", timestamp())
+  custom_time     = "22:00"
   custom_datetime = "${local.current_date} ${local.custom_time}"
 
   default_assignment = {
@@ -18,9 +18,9 @@ locals {
   assignment_pairs = flatten([
     for config_key, config in var.maintenance_configurations : [
       for assignment_key, assignment in config.assignments : {
-        config_key      = config_key
-        assignment_key  = assignment_key
-        config_name     = config.name
+        config_key     = config_key
+        assignment_key = assignment_key
+        config_name    = config.name
 
         # Merge default values with provided values
         name            = assignment.name != null ? assignment.name : "${config_key}-${assignment_key}"
@@ -38,6 +38,6 @@ locals {
   # Convert to a map with unique keys for the for_each
   assignments = {
     for pair in local.assignment_pairs :
-      "${pair.config_key}-${pair.assignment_key}" => pair
+    "${pair.config_key}-${pair.assignment_key}" => pair
   }
 }
