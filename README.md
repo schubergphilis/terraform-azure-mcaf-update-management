@@ -2,6 +2,17 @@
 
 You can define the frequency at which a maintenance window recurs using daily, weekly, or monthly schedules. Here’s how to format each schedule type:
 
+# Description
+
+With this module you can setup scheduled patching for your azure vms.
+this does require you to have your vm's on the Patch orchestration of "Customer Managed Schedules"
+you can set this on the vm's if you use the SBP module with the following properties.
+
+```terraform
+  patch_mode                                             = "AutomaticByPlatform"
+  bypass_platform_safety_checks_on_user_schedule_enabled = true
+```
+
 ## Daily Schedule
 - **Format**: `recurEvery: [Frequency as integer]['Day(s)']`
 - If no frequency is provided, it defaults to 1.
