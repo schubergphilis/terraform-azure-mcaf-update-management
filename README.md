@@ -14,33 +14,34 @@ you can set this on the vm's if you use the SBP module with the following proper
 ```
 
 ## Daily Schedule
-- **Format**: `recurEvery: [Frequency as integer]['Day(s)']`
+- **Format**: `recur_every: [Frequency as integer]['Day(s)']`
 - If no frequency is provided, it defaults to 1.
 - **Examples**:
-  - `recurEvery: Day` (recurs every day)
-  - `recurEvery: 3Days` (recurs every 3 days)
+  - `recur_every: Day` (recurs every day)
+  - `recur_every: 3Days` (recurs every 3 days)
 
 ## Weekly Schedule
-- **Format**: `recurEvery: [Frequency as integer]['Week(s)'] [Optional: comma-separated list of weekdays (e.g., Monday-Sunday)]`
+- **Format**: `recur_every: [Frequency as integer]['Week(s)'] [Optional: comma-separated list of weekdays (e.g., Monday-Sunday)]`
 - **Examples**:
-  - `recurEvery: 3Weeks` (recurs every 3 weeks)
-  - `recurEvery: Week Saturday,Sunday` (recurs every week on Saturday and Sunday)
+  - `recur_every: 3Weeks` (recurs every 3 weeks)
+  - `recur_every: Week Saturday,Sunday` (recurs every week on Saturday and Sunday)
+  - `recur_every: 1Week Monday` (recurs every week on monday)
 
 ## Monthly Schedule
 - **Two possible formats**:
-  1. `recurEvery: [Frequency as integer]['Month(s)'] [Comma-separated list of month days]`
-  2. `recurEvery: [Frequency as integer]['Month(s)'] [Week of Month (First, Second, Third, Fourth, Last)] [Weekday (e.g., Monday-Sunday)] [Optional Offset (Number of days)]`
+  1. `recur_every: [Frequency as integer]['Month(s)'] [Comma-separated list of month days]`
+  2. `recur_every: [Frequency as integer]['Month(s)'] [Week of Month (First, Second, Third, Fourth, Last)] [Weekday (e.g., Monday-Sunday)] [Optional Offset (Number of days)]`
 
 - The offset value must be between -6 and 6, inclusive.
 
 - **Examples**:
-  - `recurEvery: Month` (recurs every month)
-  - `recurEvery: 2Months` (recurs every 2 months)
-  - `recurEvery: Month day23,day24` (recurs monthly on the 23rd and 24th)
-  - `recurEvery: Month Last Sunday` (recurs on the last Sunday of every month)
-  - `recurEvery: Month Fourth Monday` (recurs on the fourth Monday of every month)
-  - `recurEvery: Month Last Sunday Offset-3` (recurs on the Sunday before the last Sunday of every month)
-  - `recurEvery: Month Third Sunday Offset6` (recurs 6 days after the third Sunday of every month)
+  - `recur_every: Month` (recurs every month)
+  - `recur_every: 2Months` (recurs every 2 months)
+  - `recur_every: Month day23,day24` (recurs monthly on the 23rd and 24th)
+  - `recur_every: Month Last Sunday` (recurs on the last Sunday of every month)
+  - `recur_every: Month Fourth Monday` (recurs on the fourth Monday of every month)
+  - `recur_every: Month Last Sunday Offset-3` (recurs on the Sunday before the last Sunday of every month)
+  - `recur_every: Month Third Sunday Offset6` (recurs 6 days after the third Sunday of every month)
 
 
 <!-- BEGIN_TF_DOCS -->
