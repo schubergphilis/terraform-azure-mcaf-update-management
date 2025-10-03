@@ -26,7 +26,7 @@ variable "maintenance_configurations" {
         package_names_mask_to_include = optional(list(string))
       }), {})
       windows = optional(object({
-        classifications_to_include = optional(list(string), ["Critical", "Security"])
+        classifications_to_include = optional(list(string), ["Critical", "Security", "Definition"])
         kb_numbers_to_exclude      = optional(list(string))
         kb_numbers_to_include      = optional(list(string))
       }), {})
